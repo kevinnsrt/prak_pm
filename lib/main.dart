@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prak_pm/screen/profile.dart';
 import 'package:prak_pm/screen/splash.dart';
 
 void main() {
