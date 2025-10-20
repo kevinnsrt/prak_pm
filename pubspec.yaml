@@ -67,6 +67,18 @@ flutter:
     - assets/login_logo.png
     - assets/google.png
     - assets/facebook.png
+    - assets/profile_pic.png
+    - assets/medali.png
+    - assets/notifikasi.png
+    - assets/kebijakan_privasi.png
+    - assets/password.png
+    - assets/peringkat.png
+    - assets/pusat_bantuan.png
+    - assets/tugas.png
+    - assets/history.png
+    - assets/coin.png
+    - assets/line.png
+    - assets/roblox.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

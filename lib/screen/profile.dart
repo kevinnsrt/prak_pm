@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prak_pm/components/profile_widget/menu_list.dart';
+import 'package:prak_pm/screen/login.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -20,154 +21,182 @@ class _ProfilePageState extends State<ProfilePage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  IconButton(onPressed: (){
+                  IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute<void>(
+                          builder: (context) => const LoginPage(),
+                        ),
+                      );
+                    },
+                    icon: Icon(Icons.arrow_back_ios, color: Colors.white),
+                  ),
 
-                  }, icon: Icon(Icons.arrow_back_ios,color: Colors.white,)),
-        
-                  Text("Profil",style: TextStyle(fontSize: 24,fontWeight: FontWeight.w500,color: Colors.white),),
-        
-                  IconButton(onPressed: (){
-        
-                  }, icon: Icon(Icons.edit,color: Colors.white,))
+                  Text(
+                    "Profil",
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white,
+                    ),
+                  ),
+
+                  IconButton(
+                    onPressed: () {},
+                    icon: Icon(Icons.edit, color: Colors.white),
+                  ),
                 ],
               ),
             ),
 
-            const SizedBox(height: 19,),
+            const SizedBox(height: 19),
 
             Expanded(
-              child: 
-            Container(
-              padding: EdgeInsets.only(
-                top: 12
-              ),
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(30),
-                  topRight: Radius.circular(30)
-                )
-              ),
-              child: Column(
-                children: [
-                  SizedBox(
-                    width: 99,
-                    height: 97,
-                    child: CircleAvatar(),
+              child: Container(
+                padding: EdgeInsets.only(top: 12),
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30),
                   ),
-
-                  Text("Kevin Namalo Sirait",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),),
-                  Text("kevinnamalo@students.usu.ac.id",style: TextStyle(fontSize: 14),),
-
-                  SizedBox(height: 32,),
-
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      boxShadow: [
-                        BoxShadow(
-                          blurRadius: 2
-                        )
-                      ],
-                      color: Colors.white,  
+                ),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      width: 99,
+                      height: 97,
+                      child: Image.asset("assets/profile_pic.png"),
                     ),
-                    width: 372,
-                    height: 68,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Row(
-                          children: [
-                            SizedBox(
-                              width: 42,
-                              height: 34,
-                              child: CircleAvatar(),
-                            ),
-                            
-                            Text("9999"),
-                            Text("E-Point"),
 
-                            SizedBox(width: 30,),
+                    Text(
+                      "Kevin Namalo Sirait",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                    Text(
+                      "kevinnamalo@students.usu.ac.id",
+                      style: TextStyle(fontSize: 14),
+                    ),
 
-                            SizedBox(
-                              width: 126,
-                              height: 45,
-                              child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                shape: RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(12)),
-                                backgroundColor: Colors.green,
-                                foregroundColor: Colors.white
+                    SizedBox(height: 32),
+
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        boxShadow: [BoxShadow(blurRadius: 2)],
+                        color: Colors.white,
+                      ),
+                      width: 372,
+                      height: 68,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Row(
+                            children: [
+                              SizedBox(
+                                width: 42,
+                                height: 34,
+                                child: Image.asset("assets/coin.png"),
                               ),
-                              onPressed: (){
 
-                            }, child: Text("Tukarkan")),
-                            )
-                          ],
-                        ),
+                              Text("9999"),
+                              Text("E-Point",),
 
-                      ],
+                              SizedBox(width: 30),
+
+                              Image.asset("assets/line.png"),
+
+                              SizedBox(width: 30),
+
+                              SizedBox(
+                                width: 126,
+                                height: 45,
+                                child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadiusGeometry.circular(12),
+                                    ),
+                                    backgroundColor: Colors.green,
+                                    foregroundColor: Colors.white,
+                                  ),
+                                  onPressed: () {},
+                                  child: Text("Tukarkan"),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
 
-                  SizedBox(height: 32,),
+                    SizedBox(height: 32),
 
-                  Container(
-                    width: 372,
-                    height: 58,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      boxShadow: [
-                        BoxShadow(
-                          offset: Offset(0, 1),
-                          blurRadius: 2
-                        )
-                      ],
-                      color: Colors.white,  
+                    Container(
+                      width: 372,
+                      height: 58,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        boxShadow: [
+                          BoxShadow(offset: Offset(0, 1), blurRadius: 2),
+                        ],
+                        color: Colors.white,
+                      ),
+
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              const SizedBox(width: 24),
+                              SizedBox(
+                                width: 48,
+                                height: 48,
+                                child: Image.asset("assets/history.png"),
+                              ),
+
+                              SizedBox(width: 10),
+
+                              Text(
+                                "Histori Transaksi",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ],
+                          ),
+
+                          IconButton(
+                            onPressed: () {},
+                            icon: Icon(Icons.keyboard_arrow_right_rounded),
+                          ),
+                        ],
+                      ),
                     ),
+                    SizedBox(height: 10),
+                    MenuList(title: "Tugas",file: "tugas.png"),
 
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
+                    SizedBox(height: 10),
+                    MenuList(title: "Peringkat",file: "peringkat.png"),
 
-                            const SizedBox(width: 24,),
-                            SizedBox(
-                              width: 48,
-                              height: 48,
-                              child: CircleAvatar(),
-                            ),
+                    SizedBox(height: 10),
+                    MenuList(title: "Notifikasi",file: "notifikasi.png"),
 
-                            SizedBox(width: 10,),
-                            
-                            Text("Histori Transaksi",style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500),),
-                          ],
-                        ),
+                    SizedBox(height: 10),
+                    MenuList(title: "Kebijakan Privasi",file: "kebijakan_privasi.png"),
 
-                        IconButton(onPressed: (){}, icon: Icon(Icons.keyboard_arrow_right_rounded))
-
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: 10,),
-                  MenuList(title: "Tugas"),
-
-                  SizedBox(height: 10,),
-                  MenuList(title: "Peringkat"),
-
-                  SizedBox(height: 10,),
-                  MenuList(title: "Notifikasi"),
-
-                  SizedBox(height: 10,),
-                  MenuList(title: "Kebijakan Privasi"),
-
-                  SizedBox(height: 10,),
-                  MenuList(title: "Medaliku")
-                ],
+                    SizedBox(height: 10),
+                    MenuList(title: "Medaliku",file: "medali.png"),
+                  ],
+                ),
               ),
-            ))
-        
+            ),
           ],
         ),
       ),

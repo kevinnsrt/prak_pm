@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 Widget MenuList({
   required String title,
+  required String file,
 }) => Container(
   width: 372,
   height: 58,
@@ -17,7 +18,9 @@ Widget MenuList({
       Row(
         children: [
           const SizedBox(width: 24),
-          SizedBox(width: 48, height: 48, child: CircleAvatar()),
+          SizedBox(width: 48, height: 48, child: 
+          Image.asset("assets/$file")
+          ),
 
           SizedBox(width: 10),
 
