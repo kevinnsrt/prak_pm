@@ -105,6 +105,9 @@ class _ProfilePageState extends State<ProfilePage> {
                               ),
 
                               Text("9999"),
+                              SizedBox(
+                                width: 6,
+                              ),
                               Text("E-Point",),
 
                               SizedBox(width: 30),
