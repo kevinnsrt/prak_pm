@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prak_pm/screen/profile.dart';
+import 'package:prak_pm/screen/splash.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -139,7 +140,17 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ],
             ),
-            Image.asset("assets/login_footer.png"),
+            GestureDetector(
+              child: Image.asset("assets/login_footer.png"),
+              onTap: (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (context) => const SplashPage(),
+                  ),
+                );
+              },
+            ),
           ],
         ),
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prak_pm/screen/navbar.dart';
 import 'package:prak_pm/screen/profile.dart';
 import 'package:prak_pm/screen/splash.dart';
 
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const SplashPage(),
+      home: const NavbarPage(),
     );
   }
 }
