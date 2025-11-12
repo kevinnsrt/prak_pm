@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:prak_pm/screen/beranda.dart';
 import 'package:prak_pm/screen/jelajah.dart';
 import 'package:prak_pm/screen/profile.dart';
@@ -36,7 +37,19 @@ class _NavbarPageState extends State<NavbarPage> {
       floatingActionButton: SizedBox(
         width: 80,
         height: 80,
-        child: FloatingActionButton(onPressed: (){},
+        child: FloatingActionButton(onPressed: () async{
+          var status = await Permission.camera.request();
+
+          if(status.isGranted){
+            ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("tuntung selayar")));
+          }
+          else if (status.isDenied){
+            await Permission.camera.request();
+          }
+          else if(status.isDenied){
+            openAppSettings();
+          }
+        },
           shape: CircleBorder(),
           backgroundColor: Colors.white,
           child: SizedBox(
