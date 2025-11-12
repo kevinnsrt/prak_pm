@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:prak_pm/screen/beranda.dart';
+import 'package:prak_pm/screen/jelajah.dart';
+import 'package:prak_pm/screen/profile.dart';
+import 'package:prak_pm/screen/tugas.dart';
 
 class NavbarPage extends StatefulWidget {
   const NavbarPage({super.key});
@@ -8,6 +12,17 @@ class NavbarPage extends StatefulWidget {
 }
 
 class _NavbarPageState extends State<NavbarPage> {
+
+  int _selectedIndex = 0;
+
+  final List<Widget> _screen = [
+
+    BerandaPage(),
+    JelajahPage(),
+    TugasPage(),
+    ProfilePage()
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
