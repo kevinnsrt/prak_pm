@@ -6,7 +6,7 @@ class TugasPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text("ini halaman tugas"),
+      child: Text("ini halaman tugas",style: TextStyle(fontSize: 24)),
     );
   }
 }

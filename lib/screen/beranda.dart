@@ -6,7 +6,7 @@ class BerandaPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text("Ini halaman beranda"),
+      child: Text("Ini halaman beranda",style: TextStyle(fontSize: 24),),
     );
   }
 }

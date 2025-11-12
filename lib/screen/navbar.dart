@@ -23,6 +23,12 @@ class _NavbarPageState extends State<NavbarPage> {
     ProfilePage()
   ];
 
+  void _onTapped (int index){
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,6 +66,11 @@ class _NavbarPageState extends State<NavbarPage> {
            _buildNavItem("Profil", Icons.person, 3)
           ],
         ),
+      ),
+
+      body: IndexedStack(
+        index: _selectedIndex,
+        children: _screen,
       ),
     );
   }

@@ -6,7 +6,7 @@ class JelajahPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text("ini halaman jelajah"),
+      child: Text("ini halaman jelajah",style: TextStyle(fontSize: 24)),
     );
   }
 }
