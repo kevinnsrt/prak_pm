@@ -32,7 +32,7 @@ class _NavbarPageState extends State<NavbarPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green,
+      // backgroundColor: Colors.green,
       floatingActionButton: SizedBox(
         width: 80,
         height: 80,
