@@ -76,7 +76,7 @@ class _NavbarPageState extends State<NavbarPage> {
   }
 
   Widget _buildNavItem(String title,IconData icon, int index){
-    return  MaterialButton(onPressed: (){},
+    return  MaterialButton(onPressed: () => _onTapped(index),
       child: Column(
         children: [
           Icon(icon),
