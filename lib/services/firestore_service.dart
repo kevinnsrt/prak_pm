@@ -17,8 +17,8 @@ class Item{
     }
     return Item(
       id: doc.id,
-      name: data['name'] as String? ?? "Tidak ada nama",
-      point: (data['point']as num ?)?.toInt() ?? 0
+      name: data['nama'] as String? ?? "Tidak ada nama",
+      point: (data['poin']as num ?)?.toInt() ?? 0
     );
   }
 }
@@ -30,6 +30,13 @@ class FirestoreService {
     return _db.collection('user_items')
         .snapshots()
         .map((snapshots)=> snapshots.docs.map((doc)=> Item.fromFireStore(doc)).toList());
+  }
+
+  Future<DocumentReference<Map<String,dynamic>>> addItem (String name, int point){
+    return _db.collection('user_items').add({
+      'nama':name,
+      'poin':point
+    });
   }
 
 }
