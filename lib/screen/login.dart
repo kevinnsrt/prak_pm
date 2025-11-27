@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:prak_pm/screen/profile.dart';
 import 'package:prak_pm/screen/splash.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -10,6 +12,35 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+
+  Future<UserCredential?> signInWithGoogle() async {
+    try {
+      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+      if (googleUser == null) {
+        print("Login dibatalkan user");
+        return null;
+      }
+
+      // 2. Ambil token authentikasi Google
+      final GoogleSignInAuthentication googleAuth =
+      await googleUser.authentication;
+
+      // 3. Konversi token menjadi credential Firebase
+      final OAuthCredential credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
+      );
+
+      // 4. Login ke Firebase
+      return await FirebaseAuth.instance.signInWithCredential(credential);
+    } catch (e) {
+      print("exception -> $e");
+      return null;
+    }
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -97,7 +128,23 @@ class _LoginPageState extends State<LoginPage> {
                       foregroundColor: Colors.black,
                       side: BorderSide(color: Colors.black),
                     ),
-                    onPressed: () {},
+                    onPressed: () async {
+                      var userCredential = await signInWithGoogle();
+
+                      if (userCredential != null) {
+                        print(userCredential.user!.email);
+
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => const ProfilePage(),
+                          ),
+                        );
+                      } else {
+                        print("Google login gagal atau dibatalkan.");
+                      }
+                    },
+
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       spacing: 8,

@@ -27,8 +27,11 @@ class _NavbarPageState extends State<NavbarPage> {
   void _onTapped (int index){
     setState(() {
       _selectedIndex = index;
+      final isSelected = _selectedIndex == index;
+      final color = isSelected ? Colors.green : Colors.grey;
     });
   }
+
 
   @override
   Widget build(BuildContext context) {

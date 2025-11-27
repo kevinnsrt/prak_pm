@@ -1,10 +1,15 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:prak_pm/screen/navbar.dart';
-import 'package:prak_pm/screen/profile.dart';
+import 'package:prak_pm/screen/login.dart';
 import 'package:prak_pm/screen/splash.dart';
 
-void main() {
-  runApp(const MyApp());
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+  );
+
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -17,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.green
       ),
-      home: const NavbarPage(),
+      home: const SplashPage(),
     );
   }
 }
