@@ -62,6 +62,13 @@ class _ItemListScreenState extends State<ItemListScreen> {
           ],
         )
       );
+      @override
+      void dispose(){
+        _nameController.dispose();
+        _pointController.dispose();
+
+        super.dispose();
+      }
     }
     return Scaffold(
       floatingActionButton: FloatingActionButton(onPressed: _showDialog,

@@ -15,15 +15,9 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   Future<void> signOutGoogle() async {
     try {
-      // Sign out from Firebase
       await FirebaseAuth.instance.signOut();
-
-      // Disconnect from Google Sign-In
       await GoogleSignIn().signOut();
-
-      // Optionally, you can also use _googleSignIn.signOut() instead of disconnect()
-      // await _googleSignIn.signOut();
-
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> LoginPage()));
       print('User signed out successfully from Google and Firebase.');
     } catch (e) {
       print('Error signing out: $e');
@@ -41,9 +35,7 @@ class _ProfilePageState extends State<ProfilePage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  SizedBox(
-                    width: 45,
-                  ),
+                  IconButton(onPressed: signOutGoogle, icon: Icon(Icons.logout,color: Colors.white,)),
                   Text(
                     "Profil",
                     style: TextStyle(
@@ -193,17 +185,12 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   ),
                   SizedBox(height: 10,),
-                  ElevatedButton(onPressed: () async{
-                    signOutGoogle();
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const LoginPage()));
-                  }, child: Text("Logout")),
-                  SizedBox(height: 10),
 
                   InkWell(
                     onTap: (){
                       Navigator.push(context, MaterialPageRoute(builder: (context)=> ItemListScreen()));
                     },
-                    child: MenuList(title: "Daftar",file: "tugas.png"),
+                    child: MenuList(title: "Daftar Item",file: "tugas.png"),
                   ),
                   SizedBox(height: 10,),
                   MenuList(title: "Tugas",file: "tugas.png"),
