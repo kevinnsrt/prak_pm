@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prak_pm/screen/navbar.dart';
 import 'package:prak_pm/screen/profile.dart';
 import 'package:prak_pm/screen/splash.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -137,7 +138,7 @@ class _LoginPageState extends State<LoginPage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (_) => const ProfilePage(),
+                            builder: (_) => const NavbarPage(),
                           ),
                         );
                       } else {
