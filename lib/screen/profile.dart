@@ -74,14 +74,14 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
 
                   Text(
-                    "Kevin Namalo Sirait",
+                    "Rangga Alif Fahreza",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
                     ),
                   ),
                   Text(
-                    "kevinnamalo@students.usu.ac.id",
+                    "ranggaalif@students.usu.ac.id",
                     style: TextStyle(fontSize: 14),
                   ),
 
