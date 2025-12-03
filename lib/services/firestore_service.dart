@@ -6,9 +6,9 @@ class Item{
   final int point;
 
   Item({
-  required this.id,
-  required this.name, required this.point
-});
+    required this.id,
+    required this.name, required this.point
+  });
   factory Item.fromFireStore(DocumentSnapshot doc){
     final data = doc.data() as Map<String,dynamic>;
 
@@ -16,9 +16,9 @@ class Item{
       throw StateError("Dokumen kosong");
     }
     return Item(
-      id: doc.id,
-      name: data['nama'] as String? ?? "Tidak ada nama",
-      point: (data['poin']as num ?)?.toInt() ?? 0
+        id: doc.id,
+        name: data['nama'] as String? ?? "Tidak ada nama",
+        point: (data['poin']as num ?)?.toInt() ?? 0
     );
   }
 }
@@ -37,6 +37,18 @@ class FirestoreService {
       'nama':name,
       'poin':point
     });
+  }
+
+  Future<void> updateItem(String id, String name,  int point) {
+    return _db.collection('user_items').doc(id).update({
+      'nama': name,
+      'poin': point
+    });
+  }
+
+  // ---- METHOD DELETE---- //
+  Future<void> deleteItem(String id) {
+    return _db.collection('user_items').doc(id).delete();
   }
 
 }
